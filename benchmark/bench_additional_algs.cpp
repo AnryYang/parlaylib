@@ -44,7 +44,7 @@ static void bench_integer_sort(benchmark::State& state) {
   auto v = random_vector(n);
   auto r = parlay::make_range(&v[0], &v[0] + v.size());
   for (auto _ : state) {
-    parlay::integer_sort(r, [](auto x) { return x; });
+    parlay::integer_sort(r, [](auto x) { return x; }, 32);
   }
 }
 
